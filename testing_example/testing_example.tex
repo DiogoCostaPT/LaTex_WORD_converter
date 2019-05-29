@@ -1,0 +1,530 @@
+
+
+\documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+% \documentclass[final,authoryear,1p,times]{elsarticle}
+%\documentclass[final,authoryear,1p,times,twocolumn]{elsarticle}
+% \documentclass[final,authoryear,3p,times]{elsarticle}
+%\documentclass[final,authoryear,3p,times,twocolumn]{elsarticle}
+% \documentclass[final,authoryear,5p,times]{elsarticle}
+%\documentclass[final,authoryear,5p,times,twocolumn]{elsarticle}
+
+
+
+\usepackage{graphics}
+
+\usepackage{graphicx}
+\newcommand{\erfc}{\mathrm{erfc}\,}
+\usepackage[switch]{lineno}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{mathabx}
+
+\usepackage[table]{xcolor}
+\definecolor{redlight}{rgb}{1,0.5,0.5}
+\definecolor{bluelight}{rgb}{0.5,0.8,1}
+
+\usepackage{tikz}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+
+\usepackage[hidelinks,draft]{hyperref}
+
+\usepackage{cleveref}
+\usepackage{enumitem}
+\usepackage{subfigure}
+\usepackage{color}
+\usepackage{soul}
+
+\usepackage[export]{adjustbox}
+
+\usepackage{footnote}
+\makesavenoteenv{tabular}
+\makesavenoteenv{table}
+\newcommand*\rfrac[2]{{}^{#1}\!/_{#2}}
+\usepackage{scrextend}
+
+
+\newcommand{\mli}[1]{\mathit{#1}}
+
+\usepackage{wasysym }
+\usepackage{tabularx}
+\usepackage{multirow}
+
+% tabular: width and alignment
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{titlesec}
+\setcounter{secnumdepth}{4}
+\titleformat{\paragraph}
+{\normalfont\normalsize}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus.2ex}{1.5ex plus.2ex}
+
+
+\usepackage[figuresfirst,nomarkers]{endfloat}
+
+
+\newcolumntype{R}[2]{%
+	>{\adjustbox{angle=#1,lap=\width-(#2)}\bgroup}%
+	l%
+	<{\egroup}%
+}
+\newcommand*\rot{\multicolumn{1}{R{90}{1em}}}% no optional argument here, please!
+
+\definecolor{backtablescolour}{rgb}{0.95,0.95,0.95}
+
+%% natbib.sty is loaded by default. However, natbib options can be
+%% provided with \biboptions{...} command. Following options are
+%% valid:
+
+%%   round  -  round parentheses are used (default)
+%%   square -  square brackets are used   [option]
+%%   curly  -  curly braces are used      {option}
+%%   angle  -  angle brackets are used    <option>
+%%   semicolon  -  multiple citations separated by semi-colon (default)
+%%   colon  - same as semicolon, an earlier confusion
+%%   comma  -  separated by comma
+%%   authoryear - selects author-year citations (default)
+%%   numbers-  selects numerical citations
+%%   super  -  numerical citations as superscripts
+%%   sort   -  sorts multiple citations according to order in ref. list
+%%   sort&compress   -  like sort, but also compresses numerical citations
+%%   compress - compresses without sorting
+%%   longnamesfirst  -  makes first citation full author list
+%%
+%% \biboptions{longnamesfirst,comma}
+
+\usepackage[version=4]{mhchem}
+
+% \biboptions{}
+\usepackage{epstopdf}
+
+%\usepackage[footnotes]{trackchanges}
+% 1) To put old and new notes only
+%\usepackage[finalold]{../trackchanges}
+%\usepackage[finalnew]{trackchanges}
+% 2) other options:
+% inline, footnotes, etc
+% 3) Commands
+%\note[topcorrect]{Comment}
+%\annote[topcorrect]{Passage}{Comment}
+%\add[topcorrect]{Added passage}
+%\remove[topcorrect]{Deleted passage }
+%\change[topcorrect]{Deleted passage }{Added passage}
+%	\addeditor{Revised}
+\soulregister\ref7
+\soulregister\citep7
+\soulregister\citealp7
+\soulregister\citet7
+\soulregister\hl7
+\soulregister\citeauthor7
+\soulregister\textsubscript7
+\soulregister\ce7
+\soulregister\textit7
+
+\newcommand{\TabFigWidtha}{\linewidth}
+
+% 1 column format
+\newcommand{\TabFigWidthb}{0.6\linewidth}
+\newcommand{\TabFigWidthbb}{0.95\linewidth}
+\newcommand{\TabFigWidthbbb}{0.75\linewidth}
+\newcommand{\TabFigWidthc}{0.47\linewidth}
+\newcommand{\TabFigWidthd}{0.52\linewidth}
+\newcommand{\TabFigWidthe}{0.55\linewidth}
+
+%\usepackage{fixltx2e}
+
+% 2 column format
+%\newcommand{\TabFigWidthb}{\linewidth}
+%\newcommand{\TabFigWidthb}{0.95\linewidth}
+%\newcommand{\TabFigWidthc}{0.95\linewidth}
+%\newcommand{\TabFigWidthd}{0.95\linewidth}
+
+%\immediate\write18{D:/OneDrive/DI_PRF_CUR/UofS/11_Bibliography_BibText_DB/Clean_BibTex_entries/for_redistribution_files_only/Clean_BibTex_entries.exe}
+
+
+\journal{????}
+
+\begin{document}
+
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for the associated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for the associated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for the associated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%%
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \address{Address\fnref{label3}}
+%% \fntext[label3]{}
+
+\title{A numerical model for the simulation of snowpack solute dynamics to capture runoff ionic pulses during snow melt}
+
+ \author[label1,label2]{Diogo Costa}
+ %\author[label1,label2]{Jennifer Roste}
+ \author[label1,label2]{John Pomeroy}
+%  \author[label1,label2]{Helen Baulch}
+ % \author[label3,label2]{Jane Elliott}
+ \author[label2]{Howard Wheater}
+%  \author[label1,label2]{Cherie Westbrook}
+
+ 
+ \address[label1]{Centre for Hydrology, University of Saskatchewan diogo.costa\makeatletter@arch.usask.ca}
+ \address[label2]{Global Institute for Water Security}
+ \address[label3]{Environment and Climate Change Canada, National Hydrology Research Centre}
+
+\begin{abstract}
+
+Early ionic pulse during spring snowmelt can account for a significant portion of the total annual nutrient load in seasonally snow-covered areas. Ionic pulses are a consequence of snow grain core to surface ion segregation during metamorphism, a process commonly refer to as ion exclusion. While numerous studies have provided quantitative measurements of this phenomenon, very few process-based mathematical models have been proposed for diagnostic and prognostic investigations. A few early modelling attempts have been successful in capturing this process assuming transport through porous media with variable porosity. However, the way this process is represented in models does not concur with how it is currently perceived to function. These models are also often difficult to implement because they require hydrological variables related to snow physics, which are computed by only a few models, such as Snowpack, SNTHERM and Crocus. \par
+
+In this research, we developed a process-based model to capture runoff ionic pulses by emulating solute leaching from snow grains during melt and its subsequent transport by meltwater through the snowpack. To simplify and facilitate its used without the need for specialized models of snow-physics, simplified alternative methods are also proposed to approximate some of the variables required by the model. \par
+
+The model was applied to two regions, and a total of 4 study sites, with significantly different winter climatic and hydrological conditions. Comparison between observations and simulation results suggest that the model can capture well the overall snow melt runoff concentration pattern, including both the timing and magnitude of the early melt ionic pulse. Although there is a computational cost associated with the proposed modelling framework, this study shows that it can provide valuable, more detailed information about the movement of ions through the snowpack during melt, and ultimately improve model predictions of nutrient exports for seasonally snow-covered areas.
+
+ 
+\end{abstract}
+
+
+\begin{keyword}
+Nutrient exports
+\sep Winter
+\sep Snow
+\sep Ion exclusion
+\sep Snow fractionation
+\sep Nutrient export
+\sep Nutrient model
+\end{keyword}
+
+\end{frontmatter}
+
+%\linenumbers
+
+\section{Introduction}
+\label{Introduction}
+
+Chemicals accumulate in snow through winter and are rapidly released to runoff during snowmelt. During this accumulation process, changes in temperature, pressure, humidity and temperature gradient cause the snow crystals to undergo metamorphosis and change their form. This phenomenon causes snow fractionation and densification, and promotes snow ion exclusion, a process where solutes are segregated from the ice crystal lattice and concentrate on the exterior of snow grains \citep{Colbeck1976,Davis1991,Pomeroy2005,Lilbaek2007}. The redistribution of ion within the snowpack cause preferential elution of some ions \citep{Johannessen1978}, which are mobilized and transported through the snowpack with the percolating meltwater. The result is an early melt ionic pulse (e.g. \citet{Davis1991,Lilbaek2008}), which has been observed to release 50-80\% of the snow ions during the first 1/3 of the melt \citep{Maule1990}. This chemical load can lead to temporary acidification of streams and cause stress conditions for the aquatic biota \citep{Marsh1999}, including fish mortality (e.g. \citealp{Driscoll1980,Gunn1984}), particularly in cases where the soil has low buffering capacity \citep{Jr1990,Tranter1988} or the contact between meltwater and the soil matrix is limited by frost \citep{Ferrier1989}. \par
+
+The timing and magnitude of the ionic pulse has been attributed to a number of different factors, which \citet{Harrington1998} summarized as melt rate \citep{Colbeck1981,Marsh1993}, melt-freeze cycles \citep{Tsiouris1985,Bales1993}, heterogeneous flow paths \citep{Jones1985,Bales1990,Marsh1993,HARRINGTON1996}, metamorphic history \citep{Davis1991,Hewitt1991}, snowpack energy fluxes \citep{Suzuki1991,Williams1996}, solute concentration \citep{Brimblecombe1987,Domine1995}, variable concentration of ions in the snow profile \citep{Colbeck1981,Bales1989}, and scale effects on sampling \citep{Marsh1993}. \par
+
+The ratio between solute concentrations in the eluted meltwater and in the snowcover, commonly referred to as Concentration Factor CF \citep{Johannessen1978,Stein1986}, has been used to indirectly measure ion exclusion. Laboratory and field studies have identified values of CF ranging between 2 \citep{Hodson2006} and 39 \citep{Tranter1991}. Typical values vary between 2 and 6 \citep{Tranter1991}, but they can reach 23 to 39-fold in cases where meltwater runs over a basal ice layer \citep{Hodson2006}. \par
+
+Numerous studies have provided quantitative evidence of these processes but fewer research has concentrated on the development of mathematical models for diagnostic and predictive purposes. \citet{Stein1986} developed an empirical model for the estimation of CF values based on pre-melt average snow concentrations and SWE dynamics, which has been successfully used in several studies (e.g. \citealp{Costa2017}). More physically-based approaches have also been proposed (e.g. \citet{Hibberd1984,Bales1991,Harrington1998}). \citet{Harrington1998}, for instance, proposed to model meltwater ion pulses by simulating solute transport along with percolating water using porous medium flow theory. However, the model does not explicitly represent solute mass exchanges between the core and the surface of snow grains as proposed in the literature. Instead, it uses the concept of mobile and immobile pore water to describe the movement and trapping of solutes through the snowpack. Another important limitation of this model for practical applications is that it requires the use of detailed models of snow physics, such as Snowpack \citep{Bartelt2002,Lehning2002a,Lehning2002}, SNTHERM \citep{Jordan1991} and Crocus \citep{Brun1992}, and therefore it can be difficult to apply and, more importantly, hinder its readily integration in catchment-scale hydrological models. \par
+
+In this research, we developed a modified version of the model introduced by \citet{Harrington1998}. The new development aims at providing a more explicit and physically-based approach to simulate the evolution of solid and liquid in-pack solute concentration during melt to capture snowmelt runoff ionic concentrations. Special attention was given to limit the model inputs to the snow-related variables typically provided hydrological models (i.e. snow water equivalent and melt rate). %The model was applied to two independent regions, and a total of 4 study areas, and results compared with observations.
+
+
+\section{Materials and methods}
+\label{chapter:materialsandmethods}
+
+\subsection{Review of critical processes}
+\par
+
+The presence of water supercooled droplets in the atmosphere leads to conditions of vapor supersaturation and promotes the growth of snow crystals through water vapor diffusion. Such conditions no longer exist when snow accumulates on the ground, causing changes in the shapes of ice crystals \citep{Harrington1998}. The shape of the crystals depends on their growth rate, which, in turn, is affected by temperature and pressure gradients. Faceted grains develop in the presence of high growth rates (kinetic growth form) and rounded grains form when slow growth rates occur (equilibrium ground rate) \citep{Colbeck1986}. In both cases, the mechanisms of snow growth have impacts on the redistribution of chemicals within the snow matrix. \par
+
+During snow metamorphism, where some snow grains lose mass while others gain, volatile ionic solutes from the grains losing mass accumulate on the surface of the surrounding snow grains \citep{Harrington1998}. Ions are not readily incorporated in the growing crystal lattice when refreezing occurs and impurities tend to be excluded and accumulate on the surface of snow grains \citep{Hewitt1991}. The ice-air interface within the snowpack has properties similar to liquid \citep{Fletcher1968} and it is where solutes accumulate, undergo reactions and are mobilized \citep{Chatterjee1971,Brimblecombe1991}. Ion exclusion rates depend on the chemical species (e.g. \citet{Davis1991,Pomeroy2005}) and lead to preferential elution. This is caused by differences in diffusion rates and on the solubility of ions in ice \citep{Harrington1998}, processes that are affected by the hydrated radii of ions and by their ability to form hydrogen bonds \citep{Lilbaek2008}. 
+
+Freeze-thaw cycles accelerate metamorphism and ice crystals undergo successive readjustments that change their orientation \citep{Harrington1998}; this also promoting the segregation of ions. During this process, capillary pressure causes the formation of grain clusters \citep{Colbeck1979}, containing liquid water in both inter-cluster veins and on films around snow grains \citep{Harrington1998}, thus increasing the mobility of ions as meltwater begins to percolate the snowpack during snowmelt. \par
+
+
+\subsubsection{Mathematical framework}
+\label{chapter:nutrientmodeldevelopment}
+
+
+\citet{Brimblecombe1987} examined ice and meltwater in laboratory experiments and concluded that snow can be modelled as a two-compartment mixture of concentrated snow surface and diluted snow grain interior. Other researchers followed and extended this approach (e.g. \citet{Bales1991,Harrington1998}). \par
+
+The model proposed in this paper was developed based on the \citet{Harrington1998} paradigm, which was modified herein. Fig. \ref{Numerical_schematic_model} shows the conceptual model used to simulate the snowpack solid phase, which is divided in the snow grain core and snow grain surface, and the mobile phase, which is absent before melt begins.
+
+The mass balance for the solid phase includes the snow grain core ($c_{sc}$, Eq. \ref{csequation}) and the snow grain surface ($c_{ss}$, Eq. \ref{ssequation}).
+
+\begin{equation}
+\dfrac{\partial (\theta_{sc} c_{sc})}{\partial t} = - c_{sc} \cdot \theta_{sc} \cdot q \cdot \dfrac{\rho_s}{\rho_l} 
+\label{csequation}
+\end{equation}
+\noindent where $\rho_s$ and $\rho_l$ are snow and liquid water densities, $\theta_{sc}$ is the volume fraction occupied by the snowpack solid phase, and $q$ is the melt rate.
+
+\begin{equation}
+\dfrac{\partial (\theta_{ss} c_{ss})}{\partial t} = c_{sc} \cdot \theta_{sc} \cdot q \cdot \dfrac{\rho_s}{\rho_l} - E \cdot \theta_{ss}
+\label{ssequation}
+\end{equation}
+\noindent where $\theta_{ss}$ is the volume fraction occupied by the snowpack liquid phase and $E$ is the solute mass exchange between the surface of the snow grain and the mobile (liquid) phase. It is assumed that the snow grain core mass (Eq. \ref{csequation}) decreases via a first-order (exponential) decay process that is also controlled by the meltrate (q). This considers that the concentrations in the snow grains decrease as they melt, which means also that the snow concentration radial gradient decreases exponentially towards the center of the snow grain. \par
+
+The total mass in the snow grain surface (Eq. \ref{ssequation}) depends on the snow grain core mass that has melted and on exchanges with the mobile liquid phase. The exchange of mass between the snow grains surface and the moving liquid mobile water ($E$) is described as,
+
+\begin{equation}
+	E = \alpha (c_{ss}-c_m)
+	\label{eq:exchangesnowcoretosurface}
+\end{equation}
+\noindent where $c_{ss}$ is the concentration at the surface of the snow grain and $\alpha$ is a parameter to account for ion exclusion, which can be different depending on the ions. The simulation of the vertical movement of the mobile solute phase through the snowpack during melt is adapted from the approach used by \citet{Harrington1998}, which extends from the work by \citet{Bear1990} on the modelling of transport through porous media. In our model, the porosity of the snowpack is set to change linearly as a function of the snowmelt rate to avoid the need to model the snow-physics.\par
+
+
+As snow melts, the vertical movement of liquid water through the snowpack is thus modeled as, 
+\begin{equation}
+\dfrac{\partial (\theta_m c_m)}{\partial t} + \nabla( \theta_m \vec{v} c_m) = \nabla \cdot (\theta_m D \nabla c_m) + E
+\end{equation}
+where $c_m$ is the concentration in the mobile phase, $\nabla( \vec{v} c_m)$ describes advection, $\vec{v}$ is the interstitial flow velocity (used as a proxy for the wetting front), $D$ is the diffusion coefficient, $\nabla \cdot (D \nabla c_m)$ describes diffusion, and $S$ represents the mass exchange with the snow grain surface as it melts. In the horizontal-averaged domain, the advection and diffusion terms can be written as
+
+\begin{equation}
+\nabla( \theta_m \vec{v} c_m) = \dfrac{\partial ( \theta_m v c_m) }{\partial z}
+\end{equation}
+\begin{equation}
+\nabla \cdot (\theta_m D \nabla c_m) = \dfrac{\partial^2 (\theta_m D c_m)}{\partial z^2}
+\end{equation}
+
+The interstitial velocity is described as
+\begin{equation}
+v = q / \theta_m, 
+\end{equation}
+\noindent where q is the snowmelt rate. To calculate the dispersion coefficient ($D$), a simple approach often adopted in subsurface hydrology is used; dispersivity ($d$) is taken as a coefficient parameter to relate interstitial velocity ($v$) to $D$ \citep{Charbeneau1992},
+
+\begin{equation}
+D = d \cdot v
+\end{equation}
+
+
+
+%
+%\begin{equation}
+%Q=\alpha (c_i-c_m)-c_s\dfrac{\rho_s}{\rho_m}\dfrac{\partial \rho_s}{\partial t}
+%\end{equation}
+%
+%\begin{equation}
+%\dfrac{\partial (\theta c_m)}{\partial t} + \dfrac{\partial v c_m}{\partial z} = \dfrac{\partial^2 (\theta_m D c_m)}{\partial z^2}  + Q
+%\end{equation}
+%\noindent where $c_m$ is 
+
+%\begin{equation}
+%\dfrac{\partial (\theta c_m)}{\partial t}=-\dfrac{\partial J_m}{\partial z}+Q
+%\end{equation}
+%\noindent where $c_m$ is 
+%
+%\begin{equation}
+%J_m=- \theta_m D \dfrac{\partial c_m}{\partial z} + q c_m
+%\end{equation}
+
+%\begin{equation}
+%u=q \rho_l
+%\end{equation}
+
+
+
+%\begin{equation}
+%S_e=\dfrac{S-S_r}{1-Sr}
+%\end{equation}
+%
+%\begin{equation}
+%S_r=\dfrac{\theta_i}{(1-\theta_s} \rightarrow \theta_i=S_r(1-\theta_s)
+%\end{equation}
+
+
+%Combining:
+%\begin{equation}
+%\dfrac{\partial (\theta_m c_m)}{\partial t}=\dfrac{\partial}{\partial z}\Big( \theta_m D \dfrac{\partial c_m}{\partial z} \Big)-\dfrac{\partial }{\partial z} (qc_m) + \alpha (c_i-c_m)-c_s\dfrac{\rho_s}{\rho_m}\dfrac{\partial \rho_s}{\partial t}
+%\end{equation}
+%
+%Conservation of mobile water mass
+%
+%\begin{equation}
+%\dfrac{\partial \theta_m}{\partial t} = \dfrac{\partial \theta_m}{\partial z} - \dfrac{\partial q}{\partial t}- \dfrac{\rho_s}{\rho_m} \dfrac{\partial \theta_s}{\partial t}
+%\end{equation}
+
+
+
+%Using the derivative product rule
+%\begin{equation}
+%\dfrac{\partial (\theta_m c_m)}{\partial t}=\theta_m\dfrac{\partial ( c_m)}{\partial t}+c_m\dfrac{\partial (\theta_m )}{\partial t}
+%\end{equation}
+%
+%after rearranging the terms, we obtain the equation for solute transport in the mobile phase:  
+%
+%
+%\begin{equation}
+%\theta_m \dfrac{\partial ( c_m)}{\partial t} 
+%+ (c_s-c_m)\dfrac{\rho_s}{\rho_m}\dfrac{\partial \rho_s}{\partial t}
+%=\dfrac{\partial}{\partial z}\Big( \theta_m D \dfrac{\partial c_m}{\partial z} \Big)
+%-q\dfrac{\partial }{\partial z} (c_m) 
+%+ \alpha (c_i-c_m)
+%\end{equation}
+
+
+
+\subsubsection{Numerical integration}
+
+An implicit numerical solution based on the Crank-Nicolson scheme, second-order method in time, was adopted to integrate the solution of the advection-dispersion equation for the mobile phase. The regions occupied by the solid and liquid phases are different and change as melt progresses to account for the effect of snowmelt on the snow depth and on the movement of the wetting front. In other words, the ``active" layers of the snowpack (i.e. wet region) are constrained by the upper snow layer, which moves downwards as snow melts at the surface of the snowpack, and the position of the wetting front, which progressively moves downwards as meltwater percolates through the snow matrix. The wetting front separates two regions, an upper wet region and a lower dry region. The transport of solutes by the snowpack liquid phase is thus limited by these two moving boundaries and is affected by varying upper and lower boundary conditions (BC), and by changes occurring within. \par
+
+The wetting front is a no-flow and no-solute transport boundary (lower boundary). As melt occurs, the upper boundary moves downwards and the mass remaining in the solid phase is transferred into the mobile (liquid) phase. To ensure mass conservation, only advection is allowed at the moving wetting front layer. For this purpose, an upwind scheme (forward Euler) is used to guarantee no exchange fluxes (advective or dispersive) between the wetting front and the contiguous downstream layer, which remains dry and immobile (i.e. the snow is assumed completely dry downward of the wetting front). Thus, the advection-dispersion equation is only solved for the wet ``active" region, which is limited by the upper and lower boundaries layers. The no-flux condition results in the development of an ion load front as ions accumulate at the wetting front. The intensity of this magnification mechanism depends on the balance between mixing and dilution processes, which is affected by the intestinal flow velocity and ultimately controlled by the melt rate. It is assumed that water and solutes in the solid phase are gradually converted into the mobile phase when water melts (at each layer) at a speed that is likewise controlled by the melt rate. During this process, it is considered that snow grain core solutes are excluded to the surface of the snow grains (parameter $E$ in Eq. \ref{eq:exchangesnowcoretosurface}) and, subsequently, gradually mixed with the percolating liquid (mobile) water.\par
+
+To maximize computational efficiency without compromising numerical stability and accuracy, the model allows for different space grid sizes and performs dynamic time steps that comply with a pre-defined maximum Courant number ($C < 1$). Obeying the Courant condition is critical to guarantee both numerical stability and accuracy for the solution of the advection term. Note that unsteady interstitial velocities, which control the advection term, arise from both variable melt rates and mobile phase fractions (i.e. porosity). A maximum time step of one hour is also enforced to ensure sufficient temporal resolution during the developing and dissipations phases of both the wetting and ion load fronts.
+
+
+\subsubsection{Model characteristics and assumptions}
+
+In the model proposed by \citet{Harrington1998}, the initial ratio between snow grain core and snow grain surface concentrations is prescribed. Contrariwise, in the proposed model only the initial average concentration of the snow grain core is defined, which is set equal to the average pre-melt snowpack concentrations. As melt starts, solute mass is transferred from the ice grain core to the ice grain surface and, finally, to the mobile phase. As a result, the proposed model framework does not require considerations or input data for snow grain surface solute concentrations. That effect is encapsulated in the parameters defining the exchange rate $E$. Although in reality ion exclusion processes occur throughout the winte, as snow metamorphism progresses, and not necessarily only during the melt period, such simplification avoids the need for pre-melt snow grain core and surface solute concentrations ratios, which would be difficult to measure and would most likely require additional model parameterizations. Extending the model to annual or inter-annual simulations in the future could enable representing ion exclusion mechanisms for the entire winter period, therefore arguably representing the process more realistically. \par
+
+In the proposed framework, the solute in the solid phase is thus assumed as initially being entirely in the snow grain core and, as it melts, being first segregated into the surface of the wet snow grain. It is only after progressively transferred into the mobile phase. Thus, the model results lead to concentrations in the solid phase decreasing behind the wetting front due to mass being gradually mixed and transported vertically with the liquid/mobile phase. The liquid and solid fractions ($\theta_l$ and $\theta_s$) vary between 0 and 1 and are calculated through a simple linear function that is controlled by the meltrate and SWE: $\theta_l = 0$ and $\theta_s = 1$ at SWE$_0$, and $\theta_l = 1$ and $\theta_s = 0$ at SWE$_{final} = 0$. The model simulates three wave fronts, namely two fast and one slow. The fast-moving ones are the snowpack wetting and ion load fronts, which are largely controlled by the interstitial velocity. The slow-moving wave is the melt front, which determines the position of the upper boundary of the snowpack and is controlled by the melt of snow at the surface of the snowpack. \par
+
+The model requires pre-melt snow depth and solute concentration values along with the time-series of melt rate. The outputs of the model are the evolution of the concentration vertical profiles for the dry (core and surface of snow grains) and wet snowpack portions; the meltwater runoff concentrations correspond to the concentrations of the percolating meltwater (wet snowpack portion) at the bottom of the snowpack. Fig. \ref{Numerical_schematic_model_graphs} shows the typical dynamics generated by the proposed model framework, which concur the overall understanding of how snow chemistry changes during melt.
+
+\subsubsection{Model applications}
+\label{subsubsection:Model_application}
+
+The model was tested using four independent datasets from two distinct study areas (Fig. \ref{Case_studies}). One dataset was collected from the Emerald Lake watershed, in Sierra Nevada, California \citep{Tonnessen1991,Harrington1998}, and the other three were measured at different sites in Trail Valley Creek, north of Inuvik, Canada \citep{Pomeroy1993,MARSH1996,Marsh1999}. 
+
+The Emerald Lake is located in Sequoia National Park and has a catchment of 1.2 km$^2$. This watershed has little human disturbance but is exposed to air pollution from upwind major urban and agricultural areas \citep{Tonnessen1991}. The site was subject to an experiment involving the release and monitoring of chloride from a melting snowpack. The average chloride (\ce{Cl}) concentration in the snowpack was measured at 1.5 $\mu eq/L$ at the onset of melt. The Trail Valley Creek catchment is located 40 km north-west of Inuvic, Northwest Territories, Canada. The three study sites monitored in this region are located in an upland tundra plateau and are crisscrossed by a river that empties into the Eskimo Lakes. The sites were located along a transect perpendicular to the river channel. The first site is defined as Open Tundra (representing 70$\%$ of the total basin), the second site is defined as Shrub Transition (representing 22$\%$ of the total basin) and the third site is characterised as Drift Valley (representing $8\%$ of the total area). The reader is referred to the suggested literature for more information about the sites and respective field monitoring programs. \par
+
+These two independent case studies, and 4 monitored sites, provide a fairly wide range of hydrological and geochemical conditions (i.e. snow depth, concentrations and melt rates) to test the proposed model. Fig. \ref{Melt_rate_sites} shows the melt rate evolution observed for the two case study areas. These observations point to very different snowmelt conditions between the two study areas. On the one hand, while the pre-melt snow depth is little over 600 mm at the Emerald Lake Watershed site, the values recorded at the different sites at Trail Valley Creek Watershed vary between 450 mm (Open Tundra site) and almost 2000 mm (Drift Valley site); the one shown in Fig. \ref{Melt_rate_sites} corresponds to the remaining site, the Shrub Transition site, which has an intermediate snow depth. On the other hand, the melt period varies between 13.4 and 36 days at Trail Valley Creek watershed, but it takes more than 4 months at the Trail Valley Creek site for the snow to completely disintegrate and disappear. \par
+
+Table \ref{table:numericalmodelcharacteristics} shows the main characteristics of the numerical model setup, including information about the initial conditions and the calibration and validation procedures. As expected, the initial conditions are very different depending on the site. This is important to test the performance of the model to a broad range of conditions: pre-melt snow depth and \ce{NO3} concentrations, and duration of the melt period. The thickness of the vertical layers used to discretize the model is also different depending on the site as a compromise between spatial resolution and computational demand.\par
+
+The model was calibrated for two case sites through a Monte Carlo Simulation framework based on 500 model realizations. The remaining two sites were used for validation purposes. The performance of model was evaluated at hourly time steps using the Nash-Sutcliffe Efficiency (NSE, Eq. \ref{NSE}), Root-Mean-Square Error (RMSE, Eq. \ref{RMSE}) and Model Bias (MB, Eq. \ref{MB}) statistical metrics.
+
+\begin{equation}
+NSE = 1-\dfrac{\sum (X_{obs}-X_{mod})^2}{(\sum X_{obs}-\mu_{obs})^2}
+\label{NSE}
+\end{equation}
+
+\begin{equation}
+RMSE = \sqrt{ \dfrac{\sum (X_{obs}-X_{mod})^2}{n} }
+\label{RMSE}
+\end{equation}
+
+\begin{equation}
+MB = \dfrac{\sum X_{obs}}{\sum X_{mod}}-1
+\label{MB}
+\end{equation}
+where $X_{obs}$ and $X_{mod}$ are observed and simulated hourly values, and $\mu_{obs}$ is the average of all observations. Monte-Carlo Simulations were performed for one site at each case study area to ensure that the parameter sets reflect local climate, hydrological and geochemical conditions. In the case of the Emerald Lake watershed case study, the model is compared with observations and the empirical and process-based model results presented by \citet{Harrington1998}. In the Trail Valley Creek case study, the model results were compared with observations for the different sites. For this study region, the best parameter sets were determined for the site with an intermediate snow cover depth (Shrub Transition). The model was subsequently tested for the remaining two sites using the same calibrated parameter combination. 
+
+\section{Results}
+\label{chapter:results}
+
+\subsection{Esmerald Lake watershed}
+
+Fig. \ref{MOCA-mountainSite} shows the performance of the model using different parameter sets obtained from the Monte-Carlo simulations. Results show that the model is moderately stiff; it is somewhat sensitive to $\alpha$ (i.e solid phase (snow grain surface) to liquid phase exchange) but nearly insensitive to $d$ (dispersivity). The best model fit is obtained for different parameters depending on the statistics measure used, which is not surprising given the nature of the different metrics. While the best NSE (0.596) and RMSE (0.325 $\mu eq L_{-2}$) values are obtained using the parameter set $\alpha = 10^{-3}$ and $aD = 5.96 \times 10^{-2} mm^2$, the best MB value (-0.01) is obtained using $\alpha = 1.02 \times 10^{-2}$ and $aD = 4.50 \times 10^{-1} mm^2$, which are both one order of magnitude higher. \par
+
+Using the best parameter set obtained using NSE and RMSE, Fig. \ref{Harrington_model_appliation_results} show the model results computed for the snowpack solid and mobile phases and compares the simulated meltwater $CF$ values against observations. The results obtained by \citet{Harrington1998} and using empirical formulae are also included for comparison purposes. Results suggest that the model can adequately capture the timing (middle and lower panel) and magnitude (lower panel) of the ionic pulse. It shows some improvements in relation to the empirical and \citet{Harrington1998} model results, particularly during the initial melt period. Conversely, the model seems to perform slightly worse during the later phases of snow melt. \par
+
+
+%\begin{figure}[!htb]
+%	\centering 
+%	\resizebox{0.95\linewidth}{!}{
+%		\begin{tabular}{l c}
+%		(a)  & \\
+%	&	\includegraphics[trim=0cm 0cm 0cm 0cm, clip,scale=0.9] {figures/C_solidphase.png} \\
+%	%	(b)  & \\
+%%&	\includegraphics[trim=0cm 0cm 0cm 0cm, clip,scale=0.9] {figures/C_immobilephase.png} \\
+%		(b)  & \\
+%	&	\includegraphics[trim=0cm 0cm 0cm 0cm, clip,scale=0.9] {figures/C_mobilephase.png} \\
+%\end{tabular}}
+%	\caption{Concentration in the immobile phase}
+%	\label{C_immobilephase.png}
+%\end{figure}
+
+
+\subsubsection{Trail Valley Creek watershed}
+
+As discussed previously in Section \ref{subsubsection:Model_application}, the calibration of the model was performed using the Shrub-Transition site, which is the intermediate site in terms of pre-melt snow depth. For the remaining sites, the model was run using the best parameter combination identified for the calibrated site (validation of the model). Fig. \ref{fig:MOCA-mountainSite} shows the model performance for different parameter combinations obtained by the Monte-Carlo simulation approach. As in the previous model application, different best parameter sets were obtained depending on the statistical measure of fit used. While the best model performance was obtained using $\alpha = 1.26 \times 10^{-2}$ and $aD = 4.95 \times 10^{-1} mm^2$ for both the NSE (0.600) and RMSE (0.325 $\mu eq L_{-2}$) metrics, using MB (-1) the best fit was obtained using $\alpha = 1.36 \times 10^{-1}$ and $aD = 2.70 \times 10^{-1} mm^2$. The best parameter set obtained for NSE and RMSE is also one order of magnitude higher (for both parameters) than that obtained for the Emerald Lake site.
+
+As in the previous case, the model was also here run for all sites within the Trail Valley Creek (Open Tundra, Shrub Transition and Drift Valley) using the best parameter fit obtained using NSE and RMSE (Fig. \ref{Tundra_model}). Results show a good agreement between observed and modelled meltwater concentrations for all sites. The model can capture accurately both the timing and magnitude of the peak (i.e. ionic pulse), as well as the subsequent concentration evolution. It should be noted that the timing of the observed and modelled peak concentrations is different depending on the site. This is related to the time required for the mobile phase (and wetting front) to move through the snow and reach the bottom of the snowpack (e.g. the thickness of the snowcover is higher for the Drift Valley site and therefore the ion pulse arrives latter). \par
+
+%\begin{figure}[!htb]
+%	\centering 
+%	\resizebox{\linewidth}{!}{\includegraphics[trim=0cm 0cm 0cm 0cm, clip,scale=0.9] {figures/Data_MarchPomeroy_paper_1.png}}
+%	\caption{...}
+%	\label{Data_MarchPomeroy_paper_1}
+%\end{figure}
+
+%\begin{figure}[!htb]
+%	\centering 
+%	\resizebox{\linewidth}{!}{\includegraphics[trim=0cm 0cm 0cm 0cm, clip,scale=0.9] {figures/Concentrations_Vs_SWE_MarshPomeroy.png}}
+%	\caption{...}
+%	\label{Concentrations_Vs_SWE_MarshPomeroy}
+%\end{figure}
+
+%\begin{figure}[!htb]
+%	\centering 
+%	\resizebox{\linewidth}{!}{\includegraphics[trim=0cm 0cm 0cm 0cm, clip,scale=0.9] {figures/Concentrations_Vs_Depth_MarshPomeroy.png}}
+%	\caption{...}
+%	\label{Concentrations_Vs_Depth_MarshPomeroy}
+%\end{figure}
+
+
+%\begin{figure}[!htb]
+%	\centering 
+%	\resizebox{\linewidth}{!}{\includegraphics[trim=0cm 0cm 0cm 0cm, clip,scale=0.9] {figures/Concentration_time_model.png}}
+%	\caption{...}
+%	\label{Concentration_time_model}
+%\end{figure}
+
+%\subsection{Hypothetical scenarios: comparison with empirical expression}
+%
+%\section{Extending the model to 2D}
+%\label{modeluncertainty}
+%
+%Contribution of the paper:
+%2) extension to 2D
+%2) extending to 2D to maybe test flow fingers 
+
+\section{Discussion}
+\label{chapter:discussion}
+
+Research suggests that snowpack ion exclusion processes occurs due to solutes being subject to segregation from the ice crystal lattice to the surface of the snow grain (e.g. \citet{Colbeck1976,Davis1991}). \citet{Harrington1998} suggests that such phenomenon occurs during snow metamorphism as volatile ionic solutes from the grains losing mass accumulate on the surface of the surrounding gaining grains. In the proposed model, this process is represented through solute exchange estimates between the core and surface of ice grains. This leads to the development of an ion load front during the initial phase of melt; a process that is caused by the mixing of percolating meltwater (through the snow) with ions located, and readily available, at the surface of snow grains. \par
+
+The model can simulate such behavior, with concentration of the solid phase (snow grain core and surface) gradually decreasing as melt progresses (upper panels of Figs. \ref{Harrington_model_appliation_results} and \ref{Tundra_model}) and the concentrations in the mobile phase gradually increasing as the load front moves through the snowpack, which causes the ion pulse commonly observed in snowmelt runoff. The concentrations gradually decrease in the solid phases as it melts and the ions are incorporated into the mobile (liquid) phase. Fig. \ref{fig:porosity_time} shows two snapshots of simulated vertical profiles of the solid and mobile phases before (upper panel) and after (lower panel) the ion load front has reached the bottom of the snowpack.
+
+
+Results show the concentration of the solid (immobile) phase decreases as snow melt progresses and solute mass is carried by the liquid (mobile) phase (upper panel). As liquid water percolates through the snowpack, it accumulates ions after removing them from the surface of snow grains. This is noticeable in the upper-panel by the significantly higher concentrations at the ion load front ($\approx 8.5$ $\mu meq L^{-1}$) when compared to the solid phase ($\approx 1.7$ $\mu meq L^{-1}$). After the ion load front has reached the snowpack bottom, which means that snowmelt runoff has also initiated, it can be noticed that the snow depth and concentration of the solid phase have significantly decreased. Likewise, the concentration of the liquid phase is much smaller because a significant portion of the solute in the snow has already been carried out by initial flush (i.e. ion load front). \par
+
+Research suggests that the rate at which ions are excluded from the ice lattice depends on the chemical species (e.g. \citet{Pomeroy2005}) for they may have different diffusion rates and solubility in ice \citep{Harrington1998}. This is accounted in the model through a simple calibrated exchange rate ($E$) between the snow grain surface and the mobile phase. Although this is a simplification of the physical and chemical (migration) mechanisms involved, it allows capturing the overall snow-grain-surface to mobile-phase ion release phenomenon. Future development efforts should include the improvement of such simplification. \par
+
+Results suggest also that the timing and magnitude of the ionic pulse depend mainly on the depth of the snowpack, on the melting rate and on the pre-melt snow concentration. These findings concur with field evidence, such as reported in \citet{Colbeck1981} and \citet{Marsh1993}, which highlight the importance of the melt rate, and in \citet{Brimblecombe1987} and \citet{Domine1995}, which emphasize the effect of pre-melt snow solute concentrations. The melt rate affects the porosity of the snowpack and, therefore, controls the interstitial flow velocity field; this, in turn, determining the speed of the ion load front. 
+
+Fig \ref{fig:porosity_time} shows the simulated liquid (mobile) and solid (immobile) fractions as calculated from a linear function controlled by the melt rate. These results point at nonlinearities in melt and porosity dynamics caused by varying atmospheric conditions during melt. The snow cover depth and melt rate play a critical role in the speed of the ion load front and, thus, on the timing of the runoff ionic pulse. To further investigate the importance of such effect, Fig. \ref{qdynamic_and_qmean} shows the results obtained for the Emerald Lake watershed case when forcing the model with different snowmelt temporal distributions, namely (a) actual recorded melt rate time series, (b) constant averaged melt rate, and (c) normal and (d) beta probability distribution functions fitted to the melt rate time series. The normal probability distribution function was fitted to the melt rate data with a mean and standard deviation of 1/2 and 1/5, and the beta distribution function with shape parameters of 3 and 2.
+
+Results confirm the importance of accurate melt rate evolutions for adequately prediction of the magnitude, and even more notably, of the timing of the ionic pulse (i.e. compare the timing and magnitude of peaks for Run 1 and Run 2). Complementary runs using different approximated normal and beta curves showed that the model predictions improved significantly as these approximations became closer to the real observed pattern; improvements were observed for the overall meltwater concentration temporal evolution, including the timing and magnitude of the peaks.
+
+
+\section{Conclusions}
+\label{chapter:conclusions}
+
+Snowmelt transports a major portion of the total annual chemical export (including nutrients) in cold regions, particularly in seasonally snow-covered areas. Snowpacks accumulate contaminants throughout the winter, chemicals which may constitute an important source of contamination when quickly released during snowmelt and lead to temporary acidification of streams. This phenomenon is particularly important during the early phases of melt and where the soil has low buffering capacity or the contact between meltwater and the soil matrix is limited by frost. The release of chemicals from the snowpack is complex; it is influenced by several processes, including snow metamorphism, ion exclusion, preferential elution and advection-diffusion of ions along with the percolating meltwater. On importance consequence of these processes is the segregation of ions from the core of snow grains to their surface, and their rapid mixing with the first meltwater flush. \par
+
+Several field studies have shown indirect evidence for this phenomenon. However, research efforts for providing physically-based simulations of these processes has been more limited. In this research, a numerical model was developed to simulate snowpack solute dynamics (concentration vertical profiles) during melt and the consequent meltwater concentration evolution. The mathematical model developed was formulated based on the current understanding of the different release, migration and transport mechanisms involved, although some processes were simplified to compromise between computational demand and practical use. The model was tested for 2 independent study areas; a total of 4 sites comprising a wide range of pre-melt snowpack depths and concentrations, and of melt rate dynamics. \par
+ 
+Results showed that the model can accurately simulate meltwater concentration dynamics at the bottom of the snowpack (runoff), including the timing and magnitude of ionic pulses, for various landscape and climatic conditions. Simulations suggest that snow melt rates at high temporal resolution (e.g. hourly) are particularly important for the adequate prediction of the timing and magnitude of concentration peaks. Although there is a computational cost associated with the proposed model, particularly in conditions of deep snowpacks, fast melt rates and detailed model vertical resolution (i.e. requires small time steps to obtain a stable and accurate numerical solution), these results show a good predictive capacity for different landscape and climate scenarios. \par
+
+The proposed model framework is a physically-based alternative to empirical models, as commonly used to estimate meltwater ionic pulses. Future research work is, however, envisaged for continuous improvement of the model, including its modular coupling with long-term catchment scale nutrient models for inter-annual nutrient export simulations. Other areas for improvement have been identified, they include (1) the development of algorithms to account for the effect of preferential elution due to differences in the ability of ions to establish hydrogen bonds, and (2) the modification of the model to enable the simulation of solute transport along with preferential flow (flow fingers), a process that affects the ability of meltwater to remove and mix with snow ions during snowmelt. \par
+
+
+
+\section{Acknowledgements}
+\label{chapter:aknowledgments}
+The authors would like to thank the Canada Excellence Research Chair in Water Security, the Canada Research Chair in Water Resources and Climate Change, the Canadian Water Network and the Natural Sciences and Engineering Research Council (NSERC) through its CREATE in Water Security and Discovery grants (463960-2015) for financial support.
+ 
+
+\section*{References}
+\bibliographystyle{elsarticle-harv}
+% LENOVO Desktop USASK
+\bibliography{library}
+
+
+\end{document}
+
+%%
+%% End of file `elsarticle-template-harv.tex'.
+%% LATEX_document_END
